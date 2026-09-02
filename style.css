@@ -1,0 +1,1207 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: #12051f;
+
+    color: #f6edff;
+
+    font-family: Georgia, serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================
+   UNIVERSO PSICODÉLICO
+========================= */
+
+.universe {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(182, 89, 255, 0.55),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(90, 50, 200, 0.6),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(255, 70, 200, 0.3),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #100018,
+            #25073b,
+            #160824,
+            #32105a
+        );
+
+    animation: universeMove 15s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes universeMove {
+
+    0% {
+
+        filter:
+            hue-rotate(0deg)
+            brightness(1);
+
+        transform: scale(1);
+
+    }
+
+
+    100% {
+
+        filter:
+            hue-rotate(12deg)
+            brightness(1.15);
+
+        transform: scale(1.08);
+
+    }
+
+}
+
+
+
+/* =========================
+   ESTRELAS
+========================= */
+
+.stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+}
+
+
+.star {
+
+    position: absolute;
+
+    color: #ffd95c;
+
+    text-shadow:
+
+        0 0 8px #ffd95c,
+        0 0 20px rgba(255, 217, 92, 0.8);
+
+    animation:
+        twinkle 3s infinite ease-in-out,
+        floatStar 8s infinite ease-in-out;
+
+}
+
+
+/* POSIÇÕES DAS ESTRELAS */
+
+.s1 {
+    top: 10%;
+    left: 8%;
+    font-size: 35px;
+}
+
+.s2 {
+    top: 25%;
+    left: 80%;
+    font-size: 25px;
+}
+
+.s3 {
+    top: 70%;
+    left: 12%;
+    font-size: 40px;
+}
+
+.s4 {
+    top: 85%;
+    left: 75%;
+    font-size: 30px;
+}
+
+.s5 {
+    top: 45%;
+    left: 90%;
+    font-size: 20px;
+}
+
+.s6 {
+    top: 15%;
+    left: 55%;
+    font-size: 32px;
+}
+
+.s7 {
+    top: 60%;
+    left: 45%;
+    font-size: 24px;
+}
+
+.s8 {
+    top: 35%;
+    left: 20%;
+    font-size: 20px;
+}
+
+.s9 {
+    top: 80%;
+    left: 30%;
+    font-size: 35px;
+}
+
+.s10 {
+    top: 50%;
+    left: 65%;
+    font-size: 25px;
+}
+
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+
+        opacity: 0.3;
+
+        transform: scale(0.8);
+
+    }
+
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.3);
+
+    }
+
+}
+
+
+@keyframes floatStar {
+
+    0%,
+    100% {
+
+        margin-top: 0;
+
+    }
+
+
+    50% {
+
+        margin-top: -15px;
+
+    }
+
+}
+
+
+
+/* =========================
+   MENU
+========================= */
+
+header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px 7%;
+
+    z-index: 100;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            rgba(18, 5, 31, 0.85),
+            rgba(18, 5, 31, 0)
+        );
+
+}
+
+
+nav {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.logo {
+
+    color: #ffe17a;
+
+    text-decoration: none;
+
+    font-size: 1.1rem;
+
+    font-style: italic;
+
+}
+
+
+.menu {
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+.menu a {
+
+    color: #eadbff;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+}
+
+
+.menu a:hover {
+
+    color: #ffd95c;
+
+    text-shadow: 0 0 10px #ffd95c;
+
+}
+
+
+
+/* =========================
+   CAPA
+========================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    padding: 100px 20px;
+
+}
+
+
+/* =========================
+   MADE OF STARDUST
+========================= */
+
+.stardust {
+
+    position: absolute;
+
+    width: 100%;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    z-index: 0;
+
+    opacity: 0.25;
+
+    color: #e8c8ff;
+
+    font-family: cursive;
+
+    font-style: italic;
+
+    transform: rotate(-8deg);
+
+    animation: stardustMove 8s ease-in-out infinite alternate;
+
+}
+
+
+.stardust span {
+
+    font-size: clamp(4rem, 13vw, 13rem);
+
+    line-height: 0.8;
+
+}
+
+
+@keyframes stardustMove {
+
+    from {
+
+        transform:
+            rotate(-8deg)
+            translateY(0);
+
+    }
+
+
+    to {
+
+        transform:
+            rotate(-5deg)
+            translateY(-20px);
+
+    }
+
+}
+
+
+
+/* =========================
+   TEXTO PRINCIPAL
+========================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    max-width: 750px;
+
+}
+
+
+.intro-title {
+
+    color: #ffd95c;
+
+    letter-spacing: 4px;
+
+    font-size: 0.7rem;
+
+    margin-bottom: 25px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(4rem, 12vw, 10rem);
+
+    font-family: Georgia, serif;
+
+    font-weight: normal;
+
+    line-height: 0.75;
+
+    text-shadow:
+
+        0 0 20px rgba(220, 160, 255, 0.5),
+
+        0 0 70px rgba(150, 60, 255, 0.5);
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: #d9a6ff;
+
+    font-style: italic;
+
+    margin-top: 20px;
+
+}
+
+
+.hero-description {
+
+    max-width: 500px;
+
+    margin: 40px auto;
+
+    color: #e3d5ee;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =========================
+   BOTÃO
+========================= */
+
+.enter-button {
+
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    border: 1px solid #ffd95c;
+
+    border-radius: 50px;
+
+    color: #ffe9a8;
+
+    text-decoration: none;
+
+    transition: 0.4s;
+
+}
+
+
+.enter-button:hover {
+
+    background: #ffd95c;
+
+    color: #2b083d;
+
+    box-shadow:
+
+        0 0 20px #ffd95c,
+        0 0 60px rgba(255, 217, 92, 0.7);
+
+}
+
+
+
+/* =========================
+   SATURNO
+========================= */
+
+.saturn {
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    right: 8%;
+
+    bottom: 8%;
+
+    z-index: 2;
+
+    animation: saturnFloat 7s ease-in-out infinite;
+
+}
+
+
+@keyframes saturnFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-8deg);
+
+    }
+
+
+    50% {
+
+        transform:
+            translateY(-25px)
+            rotate(3deg);
+
+    }
+
+}
+
+
+.saturn-planet {
+
+    position: absolute;
+
+    width: 190px;
+
+    height: 190px;
+
+    left: 55px;
+
+    top: 55px;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            140deg,
+            #f0c6ff,
+            #b35ce2,
+            #542079
+        );
+
+    box-shadow:
+
+        inset -25px -15px 40px rgba(45, 0, 70, 0.5),
+
+        0 0 50px rgba(210, 100, 255, 0.7);
+
+}
+
+
+.saturn-ring {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    transform: rotate(-20deg);
+
+}
+
+
+.ring-back {
+
+    width: 290px;
+
+    height: 90px;
+
+    left: 5px;
+
+    top: 100px;
+
+    border:
+
+        8px solid
+        rgba(255, 218, 124, 0.7);
+
+}
+
+
+.ring-front {
+
+    width: 240px;
+
+    height: 65px;
+
+    left: 30px;
+
+    top: 112px;
+
+    border:
+
+        5px solid
+        #d59cff;
+
+}
+
+
+
+/* =========================
+   SÍMBOLOS FLUTUANTES
+========================= */
+
+.floating-symbol {
+
+    position: absolute;
+
+    color: #ffd95c;
+
+    font-size: 2rem;
+
+    animation: symbolFloat 6s ease-in-out infinite;
+
+}
+
+
+.symbol1 {
+
+    left: 12%;
+
+    top: 25%;
+
+}
+
+
+.symbol2 {
+
+    right: 15%;
+
+    top: 18%;
+
+}
+
+
+.symbol3 {
+
+    left: 20%;
+
+    bottom: 20%;
+
+}
+
+
+.symbol4 {
+
+    right: 35%;
+
+    bottom: 15%;
+
+}
+
+
+@keyframes symbolFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+    }
+
+
+    50% {
+
+        transform:
+            translateY(-25px)
+            rotate(20deg);
+
+    }
+
+}
+
+
+
+/* =========================
+   EXPLORE
+========================= */
+
+.scroll-message {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    color: #e0c3ff;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 3px;
+
+    animation: scrollFloat 2s ease-in-out infinite;
+
+}
+
+
+@keyframes scrollFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+
+    50% {
+
+        transform: translateY(8px);
+
+    }
+
+}
+
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.section {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 150px 8%;
+
+    text-align: center;
+
+    position: relative;
+
+}
+
+
+.section-number {
+
+    color: #ffd95c;
+
+    letter-spacing: 4px;
+
+    font-size: 0.75rem;
+
+    margin-bottom: 20px;
+
+}
+
+
+.section h2 {
+
+    font-size: clamp(3rem, 7vw, 6rem);
+
+    font-weight: normal;
+
+    line-height: 0.9;
+
+    margin-bottom: 35px;
+
+}
+
+
+.section h2 span {
+
+    display: block;
+
+    color: #d9a6ff;
+
+    font-style: italic;
+
+}
+
+
+.section-description {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    color: #ddcee8;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =========================
+   TEXTOS
+========================= */
+
+.text-preview {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
+    margin-top: 60px;
+
+}
+
+
+.text-card {
+
+    padding: 40px;
+
+    border:
+
+        1px solid
+        rgba(218, 166, 255, 0.35);
+
+    background:
+
+        rgba(70, 20, 100, 0.25);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 30px;
+
+    transition: 0.4s;
+
+}
+
+
+.text-card:hover {
+
+    transform:
+
+        translateY(-10px)
+        rotate(1deg);
+
+    box-shadow:
+
+        0 0 40px
+        rgba(180, 80, 255, 0.35);
+
+}
+
+
+.text-card span {
+
+    color: #ffd95c;
+
+    font-size: 2rem;
+
+}
+
+
+.text-card h3 {
+
+    margin: 20px 0;
+
+    font-size: 1.6rem;
+
+    font-weight: normal;
+
+}
+
+
+.text-card p {
+
+    color: #cdbbd8;
+
+}
+
+
+.text-card button {
+
+    margin-top: 25px;
+
+    background: none;
+
+    border: none;
+
+    color: #ffd95c;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+}
+
+
+
+/* =========================
+   SOBRE MIM
+========================= */
+
+.about-symbols {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    margin-top: 60px;
+
+    font-size: 3rem;
+
+}
+
+
+.about-symbols span {
+
+    animation: symbolFloat 5s infinite ease-in-out;
+
+}
+
+
+
+/* =========================
+   FOTOS
+========================= */
+
+.photo-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 20px;
+
+    margin-top: 60px;
+
+}
+
+
+.photo-placeholder {
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    font-size: 3rem;
+
+    color: #ffd95c;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(120, 40, 180, 0.6),
+            rgba(30, 10, 70, 0.8)
+        );
+
+    border:
+
+        1px solid
+        rgba(255, 217, 92, 0.25);
+
+    transition: 0.4s;
+
+}
+
+
+.photo-placeholder:hover {
+
+    transform: scale(1.05);
+
+    box-shadow:
+
+        0 0 40px
+        rgba(200, 100, 255, 0.4);
+
+}
+
+
+.photo-placeholder span {
+
+    font-size: 1rem;
+
+    color: #eee0f7;
+
+}
+
+
+
+/* =========================
+   REDES
+========================= */
+
+.social-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    margin-top: 50px;
+
+}
+
+
+.social-links a {
+
+    color: #eadbff;
+
+    text-decoration: none;
+
+    font-size: 1.5rem;
+
+    transition: 0.3s;
+
+}
+
+
+.social-links a:hover {
+
+    color: #ffd95c;
+
+    transform: scale(1.05);
+
+}
+
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    border-top:
+
+        1px solid
+        rgba(218, 166, 255, 0.2);
+
+}
+
+
+footer p {
+
+    color: #ffd95c;
+
+    font-size: 1.4rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+footer span {
+
+    color: #b899c9;
+
+    font-style: italic;
+
+}
+
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 700px) {
+
+
+    header {
+
+        padding: 15px 20px;
+
+    }
+
+
+    nav {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+    }
+
+
+    .menu {
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        font-size: 0.8rem;
+
+    }
+
+
+    .saturn {
+
+        width: 180px;
+
+        height: 180px;
+
+        right: -20px;
+
+        bottom: 10%;
+
+        opacity: 0.8;
+
+        transform: scale(0.7);
+
+    }
+
+
+    .hero {
+
+        padding-top: 160px;
+
+    }
+
+
+    .stardust span {
+
+        font-size: 4rem;
+
+    }
+
+
+    .section {
+
+        padding: 110px 7%;
+
+    }
+
+
+    .about-symbols {
+
+        gap: 15px;
+
+        font-size: 2rem;
+
+    }
+
+}
