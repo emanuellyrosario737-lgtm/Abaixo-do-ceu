@@ -26,34 +26,165 @@
 
     <div class="universe">
 
-        <!-- CAMADAS PSICODÉLICAS -->
+        <!-- NEBLINAS -->
 
         <div class="mist mist-1"></div>
-
         <div class="mist mist-2"></div>
-
         <div class="mist mist-3"></div>
-
         <div class="mist mist-4"></div>
 
 
-        <!-- ESPIRAIS -->
+        <!-- =========================
+             RASTROS DE POEIRA CÓSMICA
+        ========================== -->
 
-        <div class="spiral spiral-1"></div>
+        <svg
+            class="dust-spirals"
+            viewBox="0 0 1600 1000"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+        >
 
-        <div class="spiral spiral-2"></div>
+            <defs>
 
-        <div class="spiral spiral-3"></div>
+                <filter id="dustTexture">
 
-        <div class="spiral spiral-4"></div>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.018"
+                        numOctaves="3"
+                        seed="8"
+                        result="noise"
+                    />
 
-        <div class="spiral spiral-5"></div>
+                    <feDisplacementMap
+                        in="SourceGraphic"
+                        in2="noise"
+                        scale="18"
+                    />
 
-        <div class="spiral spiral-6"></div>
+                    <feGaussianBlur
+                        stdDeviation="0.8"
+                    />
 
-        <div class="spiral spiral-7"></div>
+                </filter>
 
-        <div class="spiral spiral-8"></div>
+
+                <filter id="softDust">
+
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.025"
+                        numOctaves="2"
+                        seed="15"
+                        result="noise"
+                    />
+
+                    <feDisplacementMap
+                        in="SourceGraphic"
+                        in2="noise"
+                        scale="12"
+                    />
+
+                    <feGaussianBlur
+                        stdDeviation="2.5"
+                    />
+
+                </filter>
+
+            </defs>
+
+
+            <!-- TRAÇOS PRINCIPAIS -->
+
+            <g
+                class="dust-trails"
+                filter="url(#dustTexture)"
+            >
+
+                <path d="M40 160 C110 70 260 70 310 145 C360 220 290 305 190 285 C90 265 55 185 115 125 C175 65 300 100 335 185 C370 270 300 365 185 365" />
+
+                <path d="M480 70 C390 115 405 235 510 260 C625 290 710 205 665 115 C620 25 485 20 445 110 C405 200 475 330 600 345" />
+
+                <path d="M900 90 C820 150 850 265 955 285 C1060 305 1140 220 1095 125 C1050 30 915 35 875 125 C835 215 910 335 1035 350" />
+
+                <path d="M1280 45 C1190 100 1210 215 1315 250 C1425 285 1510 205 1470 110 C1430 15 1300 0 1250 85 C1200 170 1275 300 1395 325" />
+
+                <path d="M170 470 C80 530 100 650 210 675 C320 700 405 610 360 515 C315 420 180 425 130 515 C80 605 160 735 280 750" />
+
+                <path d="M600 425 C520 485 550 595 655 620 C760 645 845 560 805 470 C765 380 630 375 580 460 C530 545 610 675 730 690" />
+
+                <path d="M1020 430 C930 485 950 600 1060 625 C1170 650 1250 560 1210 465 C1170 370 1040 375 990 465 C940 555 1020 690 1140 700" />
+
+                <path d="M1400 400 C1320 460 1340 575 1445 600 C1545 625 1620 540 1580 445 C1540 350 1410 350 1360 440 C1310 530 1380 650 1500 675" />
+
+                <path d="M20 800 C100 710 240 725 285 815 C330 905 250 980 150 960 C50 940 15 850 75 790 C135 730 255 755 290 840" />
+
+                <path d="M450 760 C370 820 395 930 500 950 C605 970 690 885 650 790 C610 695 480 700 430 790 C380 880 460 1000 580 1015" />
+
+                <path d="M850 760 C770 820 800 930 905 950 C1010 970 1095 885 1055 790 C1015 695 885 700 835 790 C785 880 865 1000 985 1015" />
+
+                <path d="M1250 735 C1170 795 1200 910 1305 935 C1410 960 1495 875 1455 780 C1415 685 1285 680 1235 770 C1185 860 1265 980 1385 995" />
+
+            </g>
+
+
+            <!-- RASTROS MAIS FINOS -->
+
+            <g
+                class="dust-fine"
+                filter="url(#softDust)"
+            >
+
+                <path d="M250 30 C180 100 205 180 285 205 C365 230 430 170 400 100" />
+
+                <path d="M760 20 C690 90 715 170 795 195 C875 220 940 160 910 90" />
+
+                <path d="M1160 300 C1090 370 1115 450 1195 475 C1275 500 1340 440 1310 370" />
+
+                <path d="M370 350 C300 420 325 500 405 525 C485 550 550 490 520 420" />
+
+                <path d="M720 680 C650 750 675 830 755 855 C835 880 900 820 870 750" />
+
+                <path d="M1120 720 C1050 790 1075 870 1155 895 C1235 920 1300 860 1270 790" />
+
+                <path d="M20 610 C90 540 180 555 215 625 C250 695 190 755 120 740" />
+
+                <path d="M1360 650 C1430 580 1520 595 1555 665 C1590 735 1530 795 1460 780" />
+
+            </g>
+
+
+            <!-- POEIRA SOLTA -->
+
+            <g class="dust-particles">
+
+                <circle cx="130" cy="130" r="4" />
+                <circle cx="340" cy="210" r="3" />
+                <circle cx="520" cy="120" r="5" />
+                <circle cx="730" cy="270" r="3" />
+                <circle cx="960" cy="150" r="4" />
+                <circle cx="1180" cy="210" r="3" />
+                <circle cx="1450" cy="150" r="5" />
+
+                <circle cx="80" cy="430" r="3" />
+                <circle cx="300" cy="570" r="5" />
+                <circle cx="520" cy="470" r="3" />
+                <circle cx="780" cy="550" r="4" />
+                <circle cx="1000" cy="480" r="3" />
+                <circle cx="1250" cy="560" r="5" />
+                <circle cx="1500" cy="470" r="3" />
+
+                <circle cx="200" cy="850" r="4" />
+                <circle cx="430" cy="900" r="3" />
+                <circle cx="680" cy="820" r="5" />
+                <circle cx="900" cy="900" r="3" />
+                <circle cx="1150" cy="820" r="4" />
+                <circle cx="1400" cy="900" r="3" />
+
+            </g>
+
+        </svg>
 
 
         <!-- TEXTURA -->
@@ -103,9 +234,6 @@
 
         <nav>
 
-
-            <!-- LOGO -->
-
             <a
                 href="index.html"
                 class="logo"
@@ -115,9 +243,6 @@
 
             </a>
 
-
-
-            <!-- MENU -->
 
             <div class="menu">
 
@@ -138,7 +263,6 @@
                 </a>
 
             </div>
-
 
         </nav>
 
@@ -165,7 +289,7 @@
 
 
 
-            <!-- TÍTULO PRINCIPAL -->
+            <!-- TÍTULO -->
 
             <div class="hero-content">
 
@@ -188,7 +312,6 @@
 
                 </p>
 
-
             </div>
 
 
@@ -205,7 +328,7 @@
 
 
 
-            <!-- PEQUENOS SÍMBOLOS -->
+            <!-- SÍMBOLOS -->
 
             <span class="moon-symbol moon-1">
                 ☾
