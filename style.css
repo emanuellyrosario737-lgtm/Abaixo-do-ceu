@@ -8,66 +8,171 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-
-    background: #12051f;
-
+    background: #080617;
     color: #f6edff;
-
     font-family: Georgia, serif;
-
     overflow-x: hidden;
-
 }
 
 
 /* =========================
-   UNIVERSO PSICODÉLICO
+   UNIVERSO CELESTIAL
 ========================= */
 
 .universe {
 
     position: fixed;
 
-    inset: 0;
+    inset: -8%;
 
     z-index: -10;
 
     background:
 
+        /* pequenas nebulosas violetas */
         radial-gradient(
-            circle at 20% 20%,
-            rgba(182, 89, 255, 0.55),
+            ellipse at 18% 25%,
+            rgba(124, 74, 180, 0.38),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            ellipse at 82% 18%,
+            rgba(76, 61, 151, 0.42),
             transparent 30%
         ),
 
         radial-gradient(
-            circle at 80% 30%,
-            rgba(90, 50, 200, 0.6),
-            transparent 35%
+            ellipse at 72% 75%,
+            rgba(128, 61, 158, 0.30),
+            transparent 32%
         ),
 
         radial-gradient(
-            circle at 50% 80%,
-            rgba(255, 70, 200, 0.3),
-            transparent 40%
+            ellipse at 25% 82%,
+            rgba(61, 47, 130, 0.32),
+            transparent 35%
         ),
 
+        /* espirais cósmicas */
+        conic-gradient(
+            from 20deg at 25% 40%,
+            transparent 0deg,
+            rgba(116, 65, 158, 0.18) 45deg,
+            transparent 100deg,
+            rgba(54, 42, 113, 0.20) 150deg,
+            transparent 220deg,
+            rgba(137, 70, 159, 0.16) 290deg,
+            transparent 360deg
+        ),
+
+        conic-gradient(
+            from 180deg at 78% 62%,
+            transparent 0deg,
+            rgba(79, 58, 145, 0.20) 55deg,
+            transparent 125deg,
+            rgba(132, 65, 155, 0.17) 210deg,
+            transparent 300deg
+        ),
+
+        /* base */
         linear-gradient(
             135deg,
-            #100018,
-            #25073b,
-            #160824,
-            #32105a
+            #050512 0%,
+            #0b0920 25%,
+            #17102f 50%,
+            #0b0820 75%,
+            #050511 100%
         );
 
-    animation: universeMove 15s ease-in-out infinite alternate;
+    animation: universeMove 28s ease-in-out infinite alternate;
+
+}
+
+
+/* textura de nebulosa */
+
+.universe::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -15%;
+
+    background:
+
+        repeating-radial-gradient(
+            ellipse at 30% 40%,
+            transparent 0px,
+            transparent 70px,
+            rgba(155, 91, 190, 0.08) 100px,
+            transparent 145px
+        ),
+
+        repeating-radial-gradient(
+            ellipse at 75% 60%,
+            transparent 0px,
+            transparent 90px,
+            rgba(91, 70, 170, 0.08) 125px,
+            transparent 175px
+        );
+
+    filter: blur(12px);
+
+    opacity: 0.9;
+
+    animation: nebulaFlow 35s ease-in-out infinite alternate;
+
+}
+
+
+/* pontinhos da estampa */
+
+.universe::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255, 225, 122, 0.75) 0 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(220, 193, 255, 0.45) 0 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(255, 217, 92, 0.30) 0 1.5px,
+            transparent 2px
+        );
+
+    background-size:
+        145px 145px,
+        230px 230px,
+        310px 310px;
+
+    background-position:
+        20px 40px,
+        80px 110px,
+        160px 30px;
+
+    opacity: 0.75;
 
 }
 
@@ -76,27 +181,57 @@ body {
 
     0% {
 
-        filter:
-            hue-rotate(0deg)
-            brightness(1);
+        transform: scale(1) rotate(0deg);
 
-        transform: scale(1);
+        filter:
+            brightness(0.92)
+            hue-rotate(0deg);
 
     }
 
-
     100% {
 
-        filter:
-            hue-rotate(12deg)
-            brightness(1.15);
+        transform: scale(1.07) rotate(1deg);
 
-        transform: scale(1.08);
+        filter:
+            brightness(1.08)
+            hue-rotate(7deg);
 
     }
 
 }
 
+
+@keyframes nebulaFlow {
+
+    0% {
+
+        transform:
+            translate(-2%, -1%)
+            rotate(0deg)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(2%, 1%)
+            rotate(3deg)
+            scale(1.04);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-1%, 2%)
+            rotate(-2deg)
+            scale(1.08);
+
+    }
+
+}
 
 
 /* =========================
@@ -124,8 +259,9 @@ body {
 
     text-shadow:
 
-        0 0 8px #ffd95c,
-        0 0 20px rgba(255, 217, 92, 0.8);
+        0 0 5px #ffd95c,
+        0 0 12px rgba(255, 217, 92, 0.8),
+        0 0 25px rgba(255, 200, 70, 0.35);
 
     animation:
         twinkle 3s infinite ease-in-out,
@@ -202,18 +338,17 @@ body {
     0%,
     100% {
 
-        opacity: 0.3;
+        opacity: 0.25;
 
         transform: scale(0.8);
 
     }
 
-
     50% {
 
         opacity: 1;
 
-        transform: scale(1.3);
+        transform: scale(1.25);
 
     }
 
@@ -229,7 +364,6 @@ body {
 
     }
 
-
     50% {
 
         margin-top: -15px;
@@ -237,7 +371,6 @@ body {
     }
 
 }
-
 
 
 /* =========================
@@ -261,8 +394,8 @@ header {
 
         linear-gradient(
             to bottom,
-            rgba(18, 5, 31, 0.85),
-            rgba(18, 5, 31, 0)
+            rgba(5, 5, 18, 0.90),
+            rgba(5, 5, 18, 0)
         );
 
 }
@@ -321,7 +454,6 @@ nav {
 }
 
 
-
 /* =========================
    CAPA
 ========================= */
@@ -353,7 +485,7 @@ nav {
 
     position: absolute;
 
-    width: 100%;
+    width: 115%;
 
     text-align: center;
 
@@ -363,17 +495,27 @@ nav {
 
     z-index: 0;
 
-    opacity: 0.25;
+    opacity: 0.16;
 
-    color: #e8c8ff;
+    color: #e4c7ff;
 
-    font-family: cursive;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-style: italic;
 
+    letter-spacing: 2px;
+
     transform: rotate(-8deg);
 
-    animation: stardustMove 8s ease-in-out infinite alternate;
+    text-shadow:
+        0 0 20px rgba(203, 158, 255, 0.18),
+        0 0 60px rgba(137, 80, 180, 0.12);
+
+    animation:
+        stardustMove 10s ease-in-out infinite alternate;
 
 }
 
@@ -397,7 +539,6 @@ nav {
 
     }
 
-
     to {
 
         transform:
@@ -407,7 +548,6 @@ nav {
     }
 
 }
-
 
 
 /* =========================
@@ -485,7 +625,6 @@ nav {
 }
 
 
-
 /* =========================
    BOTÃO
 ========================= */
@@ -523,7 +662,6 @@ nav {
 }
 
 
-
 /* =========================
    SATURNO
 ========================= */
@@ -542,7 +680,8 @@ nav {
 
     z-index: 2;
 
-    animation: saturnFloat 7s ease-in-out infinite;
+    animation:
+        saturnFloat 7s ease-in-out infinite;
 
 }
 
@@ -557,7 +696,6 @@ nav {
             rotate(-8deg);
 
     }
-
 
     50% {
 
@@ -624,7 +762,6 @@ nav {
     top: 100px;
 
     border:
-
         8px solid
         rgba(255, 218, 124, 0.7);
 
@@ -642,12 +779,10 @@ nav {
     top: 112px;
 
     border:
-
         5px solid
         #d59cff;
 
 }
-
 
 
 /* =========================
@@ -662,7 +797,8 @@ nav {
 
     font-size: 2rem;
 
-    animation: symbolFloat 6s ease-in-out infinite;
+    animation:
+        symbolFloat 6s ease-in-out infinite;
 
 }
 
@@ -714,7 +850,6 @@ nav {
 
     }
 
-
     50% {
 
         transform:
@@ -724,7 +859,6 @@ nav {
     }
 
 }
-
 
 
 /* =========================
@@ -743,7 +877,8 @@ nav {
 
     letter-spacing: 3px;
 
-    animation: scrollFloat 2s ease-in-out infinite;
+    animation:
+        scrollFloat 2s ease-in-out infinite;
 
 }
 
@@ -757,7 +892,6 @@ nav {
 
     }
 
-
     50% {
 
         transform: translateY(8px);
@@ -765,7 +899,6 @@ nav {
     }
 
 }
-
 
 
 /* =========================
@@ -837,7 +970,6 @@ nav {
 }
 
 
-
 /* =========================
    TEXTOS
 ========================= */
@@ -861,13 +993,11 @@ nav {
     padding: 40px;
 
     border:
-
         1px solid
         rgba(218, 166, 255, 0.35);
 
     background:
-
-        rgba(70, 20, 100, 0.25);
+        rgba(45, 18, 70, 0.28);
 
     backdrop-filter: blur(10px);
 
@@ -881,12 +1011,10 @@ nav {
 .text-card:hover {
 
     transform:
-
         translateY(-10px)
         rotate(1deg);
 
     box-shadow:
-
         0 0 40px
         rgba(180, 80, 255, 0.35);
 
@@ -937,7 +1065,6 @@ nav {
 }
 
 
-
 /* =========================
    SOBRE MIM
 ========================= */
@@ -959,10 +1086,10 @@ nav {
 
 .about-symbols span {
 
-    animation: symbolFloat 5s infinite ease-in-out;
+    animation:
+        symbolFloat 5s infinite ease-in-out;
 
 }
-
 
 
 /* =========================
@@ -1007,12 +1134,11 @@ nav {
 
         linear-gradient(
             135deg,
-            rgba(120, 40, 180, 0.6),
-            rgba(30, 10, 70, 0.8)
+            rgba(92, 50, 140, 0.55),
+            rgba(15, 8, 42, 0.85)
         );
 
     border:
-
         1px solid
         rgba(255, 217, 92, 0.25);
 
@@ -1026,7 +1152,6 @@ nav {
     transform: scale(1.05);
 
     box-shadow:
-
         0 0 40px
         rgba(200, 100, 255, 0.4);
 
@@ -1040,7 +1165,6 @@ nav {
     color: #eee0f7;
 
 }
-
 
 
 /* =========================
@@ -1082,7 +1206,6 @@ nav {
 }
 
 
-
 /* =========================
    RODAPÉ
 ========================= */
@@ -1094,7 +1217,6 @@ footer {
     text-align: center;
 
     border-top:
-
         1px solid
         rgba(218, 166, 255, 0.2);
 
@@ -1121,20 +1243,17 @@ footer span {
 }
 
 
-
 /* =========================
    CELULAR
 ========================= */
 
 @media (max-width: 700px) {
 
-
     header {
 
         padding: 15px 20px;
 
     }
-
 
     nav {
 
@@ -1143,7 +1262,6 @@ footer span {
         gap: 12px;
 
     }
-
 
     .menu {
 
@@ -1156,7 +1274,6 @@ footer span {
         font-size: 0.8rem;
 
     }
-
 
     .saturn {
 
@@ -1174,13 +1291,11 @@ footer span {
 
     }
 
-
     .hero {
 
         padding-top: 160px;
 
     }
-
 
     .stardust span {
 
@@ -1188,13 +1303,11 @@ footer span {
 
     }
 
-
     .section {
 
         padding: 110px 7%;
 
     }
-
 
     .about-symbols {
 
@@ -1204,4 +1317,4 @@ footer span {
 
     }
 
-}
+   }
