@@ -1,0 +1,252 @@
+@font-face {
+  font-family: "Blackadder Local";
+  src: url("fonts/BlackadderITC.woff2") format("woff2"),
+       url("fonts/BlackadderITC.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --white: #f8f5ff;
+  --border: rgba(248,245,255,.42);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: #000;
+  color: var(--white);
+  font-family: "Blackadder Local", "Blackadder ITC", "Blackadder", cursive;
+  overflow-x: hidden;
+}
+
+/* O arquivo enviado é usado diretamente como o fundo. */
+.sky {
+  position: fixed;
+  inset: -8%;
+  z-index: -2;
+  background: url("assets/ceu.png") center center / cover no-repeat;
+  animation: skyMove 42s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Mantém as áreas pretas da imagem e evita que o conteúdo fique "colado" ao fundo. */
+.shade {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: rgba(0,0,0,.08);
+}
+
+@keyframes skyMove {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.025) translate3d(-0.55%, 0.3%, 0);
+  }
+  100% {
+    transform: scale(1.05) translate3d(0.65%, -0.35%, 0);
+  }
+}
+
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px clamp(18px, 5vw, 70px);
+  background: rgba(0,0,0,.20);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(4px);
+}
+
+.logo {
+  color: var(--white);
+  text-decoration: none;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: .85;
+  white-space: nowrap;
+  text-shadow: 0 3px 18px rgba(0,0,0,.7);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 22px;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1;
+  padding: 6px 1px;
+  border-bottom: 1px solid transparent;
+  transition: .25s ease;
+}
+
+nav a:hover,
+nav a.active {
+  border-bottom-color: var(--border);
+  text-shadow: 0 0 14px rgba(255,255,255,.7);
+  transform: translateY(-2px);
+}
+
+main {
+  width: min(1080px, calc(100% - 32px));
+  margin: auto;
+  flex: 1;
+}
+
+.home {
+  min-height: calc(100vh - 105px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.home h1 {
+  margin: 0;
+  max-width: 100%;
+  font-weight: normal;
+  font-size: clamp(4rem, 12vw, 10rem);
+  line-height: .78;
+  text-shadow: 0 7px 30px rgba(0,0,0,.75);
+  animation: titleFloat 8s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.page {
+  padding: 60px 0 90px;
+}
+
+.page h1 {
+  margin: 0 0 42px;
+  text-align: center;
+  font-weight: normal;
+  font-size: clamp(3.4rem, 8vw, 6.8rem);
+  line-height: .82;
+  text-shadow: 0 6px 24px rgba(0,0,0,.75);
+}
+
+.panel {
+  width: min(850px, 100%);
+  margin: auto;
+  padding: clamp(24px, 5vw, 52px);
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: rgba(0,0,0,.25);
+  box-shadow: 0 18px 70px rgba(0,0,0,.35);
+  backdrop-filter: blur(5px);
+}
+
+.panel p,
+.panel li {
+  font-size: clamp(1.35rem, 2.7vw, 2rem);
+  line-height: 1.2;
+}
+
+.panel p:first-child { margin-top: 0; }
+.panel p:last-child { margin-bottom: 0; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.gallery figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(0,0,0,.22);
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.gallery figcaption {
+  padding: 10px 12px 14px;
+  text-align: center;
+  font-size: 1.35rem;
+}
+
+.socials {
+  display: grid;
+  gap: 14px;
+}
+
+.socials a {
+  display: block;
+  color: var(--white);
+  text-decoration: none;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: rgba(0,0,0,.18);
+  font-size: clamp(1.45rem, 3vw, 2.1rem);
+  transition: .25s ease;
+}
+
+.socials a:hover {
+  transform: translateX(7px);
+  background: rgba(255,255,255,.08);
+}
+
+footer {
+  padding: 18px;
+  text-align: center;
+  font-size: 1.1rem;
+  opacity: .7;
+}
+
+@media (max-width: 720px) {
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  nav {
+    justify-content: flex-start;
+  }
+
+  .page {
+    padding-top: 35px;
+  }
+
+  .home {
+    min-height: calc(100vh - 170px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky, .home h1 { animation: none; }
+}
