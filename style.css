@@ -772,6 +772,174 @@ body {
    RASTROS PRINCIPAIS
 ========================================================= */
 
+/* Remove os filtros SVG que estavam criando manchas pretas */
+
+.dust-trails {
+
+    filter: none !important;
+
+    animation:
+        dustMoveOne
+        50s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.dust-trails path {
+
+    fill: none !important;
+
+    stroke: #9b6bb0;
+
+    stroke-width: 16;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    opacity: 0.65;
+
+    stroke-dasharray:
+        2 6;
+
+    filter:
+        drop-shadow(
+            0 0 3px
+            rgba(183, 125, 205, 0.35)
+        );
+}
+
+
+/* =========================================================
+   RASTROS FINOS
+========================================================= */
+
+.dust-fine {
+
+    filter: none !important;
+
+    animation:
+        dustMoveTwo
+        65s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.dust-fine path {
+
+    fill: none !important;
+
+    stroke: #c59aca;
+
+    stroke-width: 7;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    stroke-dasharray:
+        1 7;
+
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   POEIRA CÓSMICA
+========================================================= */
+
+.dust-particles {
+
+    animation:
+        dustMoveThree
+        40s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.dust-particles circle {
+
+    fill: #d9b85c;
+
+    opacity: 0.6;
+
+}
+
+
+/* =========================================================
+   MOVIMENTOS
+========================================================= */
+
+@keyframes dustMoveOne {
+
+    from {
+
+        transform:
+            translate(0px, 0px);
+
+    }
+
+    to {
+
+        transform:
+            translate(12px, -8px);
+
+    }
+
+}
+
+
+@keyframes dustMoveTwo {
+
+    from {
+
+        transform:
+            translate(0px, 0px);
+
+    }
+
+    to {
+
+        transform:
+            translate(-10px, 10px);
+
+    }
+
+}
+
+
+@keyframes dustMoveThree {
+
+    from {
+
+        transform:
+            translate(0px, 0px);
+
+        opacity: 0.5;
+
+    }
+
+    to {
+
+        transform:
+            translate(8px, -6px);
+
+        opacity: 0.9;
+
+    }
+
+}
+
+/* =========================================================
+   RASTROS PRINCIPAIS
+========================================================= */
+
 .dust-trails path {
 
     fill: none;
