@@ -28,74 +28,87 @@ body {
 
     position: fixed;
 
-    inset: -8%;
+    inset: -10%;
 
-    z-index: -10;
+    z-index: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
 
     background:
 
-        /* pequenas nebulosas violetas */
+        /* nebulosa violeta principal */
         radial-gradient(
-            ellipse at 18% 25%,
-            rgba(124, 74, 180, 0.38),
-            transparent 27%
+            ellipse 70% 45% at 15% 25%,
+            rgba(113, 61, 157, 0.48),
+            transparent 65%
         ),
 
+        /* azul profundo */
         radial-gradient(
-            ellipse at 82% 18%,
-            rgba(76, 61, 151, 0.42),
-            transparent 30%
+            ellipse 60% 55% at 85% 20%,
+            rgba(58, 55, 135, 0.48),
+            transparent 65%
         ),
 
+        /* violeta inferior */
         radial-gradient(
-            ellipse at 72% 75%,
-            rgba(128, 61, 158, 0.30),
-            transparent 32%
+            ellipse 70% 50% at 75% 85%,
+            rgba(111, 48, 137, 0.38),
+            transparent 68%
         ),
 
+        /* azul inferior esquerdo */
         radial-gradient(
-            ellipse at 25% 82%,
-            rgba(61, 47, 130, 0.32),
-            transparent 35%
+            ellipse 65% 55% at 15% 80%,
+            rgba(46, 46, 111, 0.38),
+            transparent 70%
         ),
 
-        /* espirais cósmicas */
+        /* grande espiral nebulosa */
         conic-gradient(
-            from 20deg at 25% 40%,
+            from 25deg at 30% 42%,
             transparent 0deg,
-            rgba(116, 65, 158, 0.18) 45deg,
-            transparent 100deg,
-            rgba(54, 42, 113, 0.20) 150deg,
-            transparent 220deg,
-            rgba(137, 70, 159, 0.16) 290deg,
+            rgba(133, 73, 163, 0.22) 35deg,
+            transparent 80deg,
+            rgba(72, 61, 145, 0.24) 135deg,
+            transparent 190deg,
+            rgba(155, 79, 161, 0.18) 245deg,
+            transparent 315deg
+        ),
+
+        /* segunda espiral */
+        conic-gradient(
+            from 160deg at 78% 65%,
+            transparent 0deg,
+            rgba(77, 59, 145, 0.25) 40deg,
+            transparent 95deg,
+            rgba(135, 66, 154, 0.20) 155deg,
+            transparent 230deg,
+            rgba(78, 57, 142, 0.20) 290deg,
             transparent 360deg
         ),
 
-        conic-gradient(
-            from 180deg at 78% 62%,
-            transparent 0deg,
-            rgba(79, 58, 145, 0.20) 55deg,
-            transparent 125deg,
-            rgba(132, 65, 155, 0.17) 210deg,
-            transparent 300deg
-        ),
-
-        /* base */
+        /* fundo */
         linear-gradient(
             135deg,
-            #050512 0%,
-            #0b0920 25%,
-            #17102f 50%,
-            #0b0820 75%,
-            #050511 100%
+            #04040f 0%,
+            #0a071c 22%,
+            #160d2d 48%,
+            #0a071b 75%,
+            #04040e 100%
         );
 
-    animation: universeMove 28s ease-in-out infinite alternate;
+    animation:
+        universeMove 30s ease-in-out infinite alternate;
 
 }
 
 
-/* textura de nebulosa */
+/* =========================
+   TEXTURA ORGÂNICA
+========================= */
 
 .universe::before {
 
@@ -103,36 +116,49 @@ body {
 
     position: absolute;
 
-    inset: -15%;
+    inset: -20%;
 
     background:
 
         repeating-radial-gradient(
-            ellipse at 30% 40%,
+            ellipse at 28% 38%,
             transparent 0px,
-            transparent 70px,
-            rgba(155, 91, 190, 0.08) 100px,
-            transparent 145px
+            transparent 65px,
+            rgba(180, 112, 197, 0.08) 90px,
+            transparent 125px,
+            transparent 170px
         ),
 
         repeating-radial-gradient(
-            ellipse at 75% 60%,
+            ellipse at 75% 65%,
             transparent 0px,
-            transparent 90px,
-            rgba(91, 70, 170, 0.08) 125px,
-            transparent 175px
+            transparent 80px,
+            rgba(101, 91, 177, 0.09) 110px,
+            transparent 145px,
+            transparent 200px
+        ),
+
+        repeating-radial-gradient(
+            ellipse at 55% 20%,
+            transparent 0px,
+            transparent 110px,
+            rgba(151, 80, 170, 0.06) 140px,
+            transparent 180px
         );
 
-    filter: blur(12px);
+    filter: blur(10px);
 
-    opacity: 0.9;
+    opacity: 1;
 
-    animation: nebulaFlow 35s ease-in-out infinite alternate;
+    animation:
+        nebulaFlow 38s ease-in-out infinite alternate;
 
 }
 
 
-/* pontinhos da estampa */
+/* =========================
+   ESTAMPA DE PEQUENAS ESTRELAS
+========================= */
 
 .universe::after {
 
@@ -146,42 +172,54 @@ body {
 
         radial-gradient(
             circle,
-            rgba(255, 225, 122, 0.75) 0 1px,
-            transparent 1.5px
+            rgba(255, 224, 128, 0.85) 0 1px,
+            transparent 1.7px
         ),
 
         radial-gradient(
             circle,
-            rgba(220, 193, 255, 0.45) 0 1px,
-            transparent 1.5px
+            rgba(255, 217, 92, 0.55) 0 1px,
+            transparent 1.8px
         ),
 
         radial-gradient(
             circle,
-            rgba(255, 217, 92, 0.30) 0 1.5px,
+            rgba(222, 201, 255, 0.42) 0 1px,
+            transparent 1.7px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(255, 238, 169, 0.28) 0 1.5px,
             transparent 2px
         );
 
     background-size:
-        145px 145px,
-        230px 230px,
-        310px 310px;
+        120px 120px,
+        185px 185px,
+        260px 260px,
+        330px 330px;
 
     background-position:
-        20px 40px,
-        80px 110px,
-        160px 30px;
+        10px 25px,
+        70px 100px,
+        145px 45px,
+        30px 170px;
 
-    opacity: 0.75;
+    opacity: 0.72;
 
 }
 
+
+/* movimento extremamente suave do universo */
 
 @keyframes universeMove {
 
     0% {
 
-        transform: scale(1) rotate(0deg);
+        transform:
+            scale(1)
+            rotate(0deg);
 
         filter:
             brightness(0.92)
@@ -191,11 +229,13 @@ body {
 
     100% {
 
-        transform: scale(1.07) rotate(1deg);
+        transform:
+            scale(1.06)
+            rotate(1deg);
 
         filter:
             brightness(1.08)
-            hue-rotate(7deg);
+            hue-rotate(6deg);
 
     }
 
@@ -235,7 +275,7 @@ body {
 
 
 /* =========================
-   ESTRELAS
+   ESTRELAS GRANDES
 ========================= */
 
 .stars {
@@ -246,7 +286,7 @@ body {
 
     pointer-events: none;
 
-    z-index: -2;
+    z-index: 3;
 
 }
 
@@ -260,8 +300,8 @@ body {
     text-shadow:
 
         0 0 5px #ffd95c,
-        0 0 12px rgba(255, 217, 92, 0.8),
-        0 0 25px rgba(255, 200, 70, 0.35);
+        0 0 12px rgba(255, 217, 92, 0.85),
+        0 0 28px rgba(255, 200, 70, 0.4);
 
     animation:
         twinkle 3s infinite ease-in-out,
@@ -474,6 +514,8 @@ nav {
 
     padding: 100px 20px;
 
+    z-index: 4;
+
 }
 
 
@@ -495,9 +537,9 @@ nav {
 
     z-index: 0;
 
-    opacity: 0.16;
+    opacity: 0.18;
 
-    color: #e4c7ff;
+    color: #e7d0ff;
 
     font-family:
         Georgia,
@@ -511,8 +553,10 @@ nav {
     transform: rotate(-8deg);
 
     text-shadow:
+
         0 0 20px rgba(203, 158, 255, 0.18),
-        0 0 60px rgba(137, 80, 180, 0.12);
+
+        0 0 60px rgba(137, 80, 180, 0.15);
 
     animation:
         stardustMove 10s ease-in-out infinite alternate;
@@ -678,7 +722,7 @@ nav {
 
     bottom: 8%;
 
-    z-index: 2;
+    z-index: 6;
 
     animation:
         saturnFloat 7s ease-in-out infinite;
@@ -797,6 +841,8 @@ nav {
 
     font-size: 2rem;
 
+    z-index: 6;
+
     animation:
         symbolFloat 6s ease-in-out infinite;
 
@@ -877,6 +923,8 @@ nav {
 
     letter-spacing: 3px;
 
+    z-index: 6;
+
     animation:
         scrollFloat 2s ease-in-out infinite;
 
@@ -916,6 +964,8 @@ nav {
     text-align: center;
 
     position: relative;
+
+    z-index: 4;
 
 }
 
@@ -1220,6 +1270,10 @@ footer {
         1px solid
         rgba(218, 166, 255, 0.2);
 
+    position: relative;
+
+    z-index: 4;
+
 }
 
 
@@ -1317,4 +1371,4 @@ footer span {
 
     }
 
-   }
+           }
