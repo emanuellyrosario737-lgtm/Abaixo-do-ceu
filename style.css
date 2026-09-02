@@ -1310,10 +1310,142 @@ main {
 }
 
 
+/* SATURNO */
+
+    .saturn {
+
+        width:
+            130px;
+
+        height:
+            130px;
+
+        right:
+            4%;
+
+        bottom:
+            10%;
+    }
+
+
+    .saturn-body {
+
+        width:
+            72px;
+
+        height:
+            72px;
+
+        top:
+            29px;
+
+        left:
+            29px;
+    }
+
+
+    .saturn-ring {
+
+        width:
+            130px;
+
+        height:
+            38px;
+
+        top:
+            46px;
+
+        border-width:
+            4px;
+    }
+
+
+    /* ESPIRAIS */
+
+    .spiral-1 {
+        width: 300px;
+        height: 280px;
+    }
+
+    .spiral-2 {
+        width: 330px;
+        height: 300px;
+    }
+
+    .spiral-3 {
+        width: 310px;
+        height: 330px;
+    }
+
+    .spiral-4 {
+        width: 300px;
+        height: 280px;
+    }
+
+    .spiral-5 {
+        width: 330px;
+        height: 300px;
+    }
+
+    .spiral-6 {
+        width: 300px;
+        height: 320px;
+    }
+
+    .spiral-7 {
+        width: 310px;
+        height: 290px;
+    }
+
+    .spiral-8 {
+        width: 330px;
+        height: 300px;
+    }
+
+    .spiral-9 {
+        width: 300px;
+        height: 320px;
+    }
+
+    .spiral-10 {
+        width: 220px;
+        height: 210px;
+    }
+
+    .spiral-11 {
+        width: 230px;
+        height: 210px;
+    }
+
+    .spiral-12 {
+        width: 220px;
+        height: 230px;
+    }
+
+}
+
+
 /* =========================================================
-   SATURNO
+   ACESSIBILIDADE
 ========================================================= */
 
-.saturn {
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+
+}
+
 
  
