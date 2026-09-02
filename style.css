@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    background: #080617;
+    background: red !important
     color: #f6edff;
     font-family: Georgia, serif;
     overflow-x: hidden;
