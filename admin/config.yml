@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: emanuelly
+  repo: emanuellyrosario737/Abaixo-do-ceu
   branch: main
 
 media_folder: "uploads"
